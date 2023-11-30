@@ -25,11 +25,8 @@ fn temp_file() -> String {
 #[derive(Deserialize, Copy, Clone, Debug)]
 #[serde(rename_all = "lowercase")]
 pub enum Mode {
-    // Indicates that the exercise should be compiled as a binary
     Build,
-    // Indicates that the exercise should run
     Run,
-    // Indicates that the exercise should be tested
     Test,
 }
 
