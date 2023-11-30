@@ -22,7 +22,6 @@ fn temp_file() -> String {
     format!("./temp_{}_{thread_id}", process::id())
 }
 
-// The mode of the exercise.
 #[derive(Deserialize, Copy, Clone, Debug)]
 #[serde(rename_all = "lowercase")]
 pub enum Mode {
