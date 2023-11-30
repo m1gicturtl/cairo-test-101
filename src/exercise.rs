@@ -12,7 +12,16 @@ use crate::scarb::{scarb_build, scarb_run, scarb_test};
 const I_AM_DONE_REGEX: &str = r"(?m)^\s*///?\s*I\s+AM\s+NOT\s+DONE";
 const CONTEXT: usize = 2;
 
+// Get a temporary file name that is hopefully unique
+#[inline]
+fn temp_file() -> String {
+    let thread_id: String = format!("{:?}", std::thread::current().id())
+        .chars()
+        .filter(|c| c.is_alphanumeric())
+        .collect();
 
+    format!("./temp_{}_{thread_id}", process::id())
+}
 
 // The mode of the exercise.
 #[derive(Deserialize, Copy, Clone, Debug)]
